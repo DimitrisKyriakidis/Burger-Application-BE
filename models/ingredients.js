@@ -4,14 +4,26 @@ module.exports = (sequelize, Sequelize) => {
     const tableName = 'INGREDIENTS'
     const ingredients = sequelize.define(
         tableName, {
-            ingredientCategory_id: {
+            id: {
                 type: Sequelize.INTEGER,
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
             },
-            ingredientCategory_name: {
+            category: {
                 type: Sequelize.STRING,
+                allowNull: true,
+            },
+            name: {
+                type: Sequelize.STRING,
+                allowNull: true,
+            },
+            price: {
+                type: Sequelize.FLOAT,
+                allowNull: true,
+            },
+            quantity: {
+                type: Sequelize.INTEGER,
                 allowNull: true,
             },
             order_id: {
@@ -29,18 +41,18 @@ module.exports = (sequelize, Sequelize) => {
         ingredients.belongsTo(Models.Order, {
             as: 'ingredients',
             foreignKey: 'order_id',
-            sourceKey: '  ingredientCategory_id',
+            sourceKey: 'id',
         })
     }
 
-    ingredients.associate = (Models) => {
-        console.log('Models===', Models)
-        ingredients.hasMany(Models.Ingredients_Items, {
-            as: 'ingredients_items',
-            foreignKey: 'ingredient_id',
-            sourceKey: 'ingredientCategory_id',
-        })
-    }
+    // ingredients.associate = (Models) => {
+    //     console.log('Models===', Models)
+    //     ingredients.hasMany(Models.Ingredients_Items, {
+    //         as: 'ingredients_items',
+    //         foreignKey: 'ingredient_id',
+    //         sourceKey: 'ingredientCategory_id',
+    //     })
+    // }
 
     return ingredients
 }

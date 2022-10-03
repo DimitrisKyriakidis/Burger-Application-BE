@@ -11,15 +11,14 @@ module.exports = async(req, res) => {
         )
 
         let burgerService = new Burgers()
-        let result = await burgerService.getAllBurgers()
+        const result = await burgerService.getAllBurgers()
 
         logger.info(
             `Code: ${loggingPolicy.successResponse.code},  ${apiName}  ${loggingPolicy.successResponse.message}`,
         )
         res.status(200).send({
             message: 'Burgers retrivied!!',
-            data: result
-
+            data: result,
         })
     } catch (err) {
         logger.error(
