@@ -1,7 +1,7 @@
-const hash = require('object-hash')
+const hash = require("object-hash");
 
 module.exports = (sequelize, Sequelize) => {
-    const tableName = 'ORDER_CATEGORY'
+    const tableName = "ORDER_CATEGORY";
     const order = sequelize.define(
         tableName, {
             id: {
@@ -14,20 +14,24 @@ module.exports = (sequelize, Sequelize) => {
                 type: Sequelize.FLOAT,
                 allowNull: true,
             },
+            comment: {
+                type: Sequelize.STRING,
+                allowNull: true,
+            },
         }, {
             freezeTableName: true,
             tableName: tableName,
-        },
-    )
+        }
+    );
 
     order.associate = (Models) => {
-        console.log('Models===', Models)
+        console.log("Models===", Models);
         order.hasMany(Models.Ingredients, {
-            as: 'ingredients',
-            foreignKey: 'order_id',
-            sourceKey: 'id',
-        })
-    }
+            as: "ingredients",
+            foreignKey: "order_id",
+            sourceKey: "id",
+        });
+    };
 
-    return order
-}
+    return order;
+};
