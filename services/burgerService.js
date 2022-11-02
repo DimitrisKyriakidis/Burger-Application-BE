@@ -16,6 +16,13 @@ class Burgers {
     async createOrder(orderData) {
         // if (typeof(orderData) === "string") { orderData = JSON.parse(orderData) }
         console.log("orderData==", orderData);
+
+        Object.keys(orderData).forEach((key) => {
+            if (key === null) {
+                delete orderData[key];
+            }
+        });
+
         let order = await Models.Order.create({
             id: uuid(),
             comment: orderData.comment ? orderData.comment : null,
@@ -27,11 +34,12 @@ class Burgers {
 
         console.log("createData", createData);
         createData.forEach(async(element) => {
-            let ingredients = await Models.Ingredients.create({
+            await Models.Ingredients.create({
                 category: element.category ? element.category : null,
                 name: element.name ? element.name : null,
                 price: element.price ? element.price : null,
                 order_id: order.id,
+                selected: element.selected ? element.selected : null,
             });
         });
         let orderPrice = 0;
@@ -53,7 +61,7 @@ class Burgers {
     }
 
     async updateOrder(id, body) {
-        let order = await Models.Order.update({
+        await Models.Order.update({
             id: id,
 
             comment: body.comment,
@@ -67,11 +75,18 @@ class Burgers {
             .filter((val) => val !== null);
 
         console.log("updateData", updateData);
+
+        //for update we need to destroy the existing ingredients and then create again in order to avoid database errors
+        await Models.Ingredients.destroy({
+            where: {
+                order_id: id,
+            },
+        });
         updateData.forEach(async(element) => {
-            let ingredients = await Models.Ingredients.update({
-                category: element.category ? element.category : null,
-                name: element.name ? element.name : null,
-                price: element.price ? element.price : null,
+            await Models.Ingredients.create({
+                category: element.category,
+                name: element.name,
+                price: element.price,
                 order_id: id,
             }, {
                 where: {
@@ -79,13 +94,14 @@ class Burgers {
                 },
             });
         });
-        calculateOrderPrice(updateData);
 
-        return {...updateData, ...calculateOrderPrice(updateData) };
+        calculateOrderPrice(updateData, id);
+
+        return {...updateData, ...calculateOrderPrice(updateData, id) };
     }
 }
 
-const calculateOrderPrice = async(data) => {
+const calculateOrderPrice = async(data, id) => {
     let orderPrice = 0;
     await Promise.all(data).then(async(value) => {
         console.log("promiseValue=", value);
@@ -96,7 +112,7 @@ const calculateOrderPrice = async(data) => {
         console.log("orderPrice==", orderPrice);
         await Models.Order.update({ orderPrice: orderPrice }, {
             where: {
-                id: order.id,
+                id: id,
             },
         });
     });

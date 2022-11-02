@@ -1,7 +1,7 @@
-const hash = require('object-hash')
+const hash = require("object-hash");
 
 module.exports = (sequelize, Sequelize) => {
-    const tableName = 'INGREDIENTS'
+    const tableName = "INGREDIENTS";
     const ingredients = sequelize.define(
         tableName, {
             id: {
@@ -28,22 +28,26 @@ module.exports = (sequelize, Sequelize) => {
             },
             order_id: {
                 type: Sequelize.STRING,
+                allowNull: false,
+            },
+            selected: {
+                type: Sequelize.BOOLEAN,
                 allowNull: true,
             },
         }, {
             freezeTableName: true,
             tableName: tableName,
-        },
-    )
+        }
+    );
 
     ingredients.associate = (Models) => {
-        console.log('Models===', Models)
+        console.log("Models===", Models);
         ingredients.belongsTo(Models.Order, {
-            as: 'ingredients',
-            foreignKey: 'order_id',
-            sourceKey: 'id',
-        })
-    }
+            as: "ingredients",
+            foreignKey: "order_id",
+            sourceKey: "id",
+        });
+    };
 
     // ingredients.associate = (Models) => {
     //     console.log('Models===', Models)
@@ -54,5 +58,5 @@ module.exports = (sequelize, Sequelize) => {
     //     })
     // }
 
-    return ingredients
-}
+    return ingredients;
+};
