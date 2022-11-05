@@ -14,14 +14,15 @@ class Burgers {
     }
 
     async createOrder(orderData) {
-        // if (typeof(orderData) === "string") { orderData = JSON.parse(orderData) }
-        console.log("orderData==", orderData);
+        console.log("orderData1==", orderData);
 
-        Object.keys(orderData).forEach((key) => {
-            if (key === null) {
+        for (const key in orderData) {
+            if (orderData[key] === null) {
                 delete orderData[key];
             }
-        });
+        }
+
+        console.log("orderData2==", orderData);
 
         let order = await Models.Order.create({
             id: uuid(),
@@ -30,7 +31,7 @@ class Burgers {
 
         let createData = Object.keys(orderData)
             .map((key) => orderData[key])
-            .filter((val) => val !== null);
+            .filter((val) => val !== null && typeof val !== "string");
 
         console.log("createData", createData);
         createData.forEach(async(element) => {
@@ -61,10 +62,11 @@ class Burgers {
     }
 
     async updateOrder(id, body) {
+        console.log("bodyUpdate==", body);
         await Models.Order.update({
             id: id,
 
-            comment: body.comment,
+            comment: body.comment ? body.comment : null,
         }, {
             where: {
                 id: id,
@@ -72,7 +74,7 @@ class Burgers {
         });
         let updateData = Object.keys(body)
             .map((key) => body[key])
-            .filter((val) => val !== null);
+            .filter((val) => val !== null && typeof val !== "string");
 
         console.log("updateData", updateData);
 
@@ -87,6 +89,7 @@ class Burgers {
                 category: element.category,
                 name: element.name,
                 price: element.price,
+                selected: element.selected,
                 order_id: id,
             }, {
                 where: {
@@ -118,21 +121,5 @@ const calculateOrderPrice = async(data, id) => {
     });
     return orderPrice;
 };
-// async function calculateOrderPrice(data) {
-//     let orderPrice = 0;
-//     await Promise.all(data).then(async(value) => {
-//         console.log("promiseValue=", value);
-//         orderPrice = value.reduce((acc, item) => {
-//             return acc + item.price;
-//         }, 0);
-
-//         console.log("orderPrice==", orderPrice);
-//         await Models.Order.update({ orderPrice: orderPrice }, {
-//             where: {
-//                 id: order.id,
-//             },
-//         });
-//     });
-// }
 
 module.exports = { Burgers };

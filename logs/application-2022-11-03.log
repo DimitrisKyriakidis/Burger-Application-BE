@@ -77,3 +77,10 @@
 2022-11-02T23:30:19.353Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
 2022-11-02T23:32:35.827Z [info] : 	Code: F100  createOrder  Function Called
 2022-11-02T23:34:55.364Z [info] : 	Code: F100  createOrder  Function Called
+2022-11-02T23:38:16.332Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-02T23:38:16.402Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-02T23:38:23.034Z [info] : 	Code: F100  createOrder  Function Called
+2022-11-02T23:39:06.531Z [info] : 	Code: HTTP200,  createOrder  Successful response
+2022-11-02T23:39:06.594Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-02T23:39:06.603Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-02T23:40:10.840Z [info] : 	Code: F100  createOrder  Function Called
