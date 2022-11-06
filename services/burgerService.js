@@ -27,11 +27,15 @@ class Burgers {
         let order = await Models.Order.create({
             id: uuid(),
             comment: orderData.comment ? orderData.comment : null,
+            status: orderData.status ? orderData.status : null,
         });
 
         let createData = Object.keys(orderData)
             .map((key) => orderData[key])
-            .filter((val) => val !== null && typeof val !== "string");
+            .filter(
+                (val) =>
+                val !== null && typeof val !== "string" && typeof val !== "number"
+            );
 
         console.log("createData", createData);
         createData.forEach(async(element) => {
@@ -65,8 +69,8 @@ class Burgers {
         console.log("bodyUpdate==", body);
         await Models.Order.update({
             id: id,
-
             comment: body.comment ? body.comment : null,
+            status: orderData.status ? orderData.status : null,
         }, {
             where: {
                 id: id,
@@ -74,7 +78,10 @@ class Burgers {
         });
         let updateData = Object.keys(body)
             .map((key) => body[key])
-            .filter((val) => val !== null && typeof val !== "string");
+            .filter(
+                (val) =>
+                val !== null && typeof val !== "string" && typeof val !== "number"
+            );
 
         console.log("updateData", updateData);
 
