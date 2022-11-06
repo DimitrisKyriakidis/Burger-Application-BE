@@ -18,6 +18,10 @@ module.exports = (sequelize, Sequelize) => {
                 type: Sequelize.STRING,
                 allowNull: true,
             },
+            status: {
+                type: Sequelize.FLOAT,
+                allowNull: true,
+            },
         }, {
             freezeTableName: true,
             tableName: tableName,
