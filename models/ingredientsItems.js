@@ -1,46 +1,46 @@
-const hash = require('object-hash')
-const { Models } = require('../database/DB')
+// const hash = require('object-hash')
+// const { Models } = require('../database/DB')
 
-module.exports = (sequelize, Sequelize) => {
-    const tableName = 'INGREDIENTS_ITEMS'
-    const ingredients_items = sequelize.define(
-        tableName, {
-            id: {
-                type: Sequelize.STRING,
-                defaultValue: Sequelize.UUIDV4,
-                allowNull: false,
-                primaryKey: true,
-            },
-            name: {
-                type: Sequelize.STRING,
-                allowNull: true,
-            },
-            price: {
-                type: Sequelize.FLOAT,
-                allowNull: true,
-            },
-            quantity: {
-                type: Sequelize.INTEGER,
-                allowNull: true,
-            },
-            ingredient_id: {
-                type: Sequelize.INTEGER,
-                allowNull: true,
-            },
-        }, {
-            freezeTableName: true,
-            tableName: tableName,
-        },
-    )
+// module.exports = (sequelize, Sequelize) => {
+//     const tableName = 'INGREDIENTS_ITEMS'
+//     const ingredients_items = sequelize.define(
+//         tableName, {
+//             id: {
+//                 type: Sequelize.STRING,
+//                 defaultValue: Sequelize.UUIDV4,
+//                 allowNull: false,
+//                 primaryKey: true,
+//             },
+//             name: {
+//                 type: Sequelize.STRING,
+//                 allowNull: true,
+//             },
+//             price: {
+//                 type: Sequelize.FLOAT,
+//                 allowNull: true,
+//             },
+//             quantity: {
+//                 type: Sequelize.INTEGER,
+//                 allowNull: true,
+//             },
+//             ingredient_id: {
+//                 type: Sequelize.INTEGER,
+//                 allowNull: true,
+//             },
+//         }, {
+//             freezeTableName: true,
+//             tableName: tableName,
+//         },
+//     )
 
-    // ingredients_items.associate = (Models) => {
-    //     console.log('Models===', Models)
-    //     ingredients_items.belongsTo(Models.Ingredients, {
-    //         as: 'ingredients_items',
-    //         foreignKey: 'ingredient_id',
-    //         sourceKey: 'id',
-    //     })
-    // }
+//     // ingredients_items.associate = (Models) => {
+//     //     console.log('Models===', Models)
+//     //     ingredients_items.belongsTo(Models.Ingredients, {
+//     //         as: 'ingredients_items',
+//     //         foreignKey: 'ingredient_id',
+//     //         sourceKey: 'id',
+//     //     })
+//     // }
 
-    return ingredients_items
-}
+//     return ingredients_items
+// }

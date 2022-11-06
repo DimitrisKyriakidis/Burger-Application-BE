@@ -46,6 +46,8 @@ module.exports = (sequelize, Sequelize) => {
             as: "ingredients",
             foreignKey: "order_id",
             sourceKey: "id",
+            onDelete: "cascade",
+            hooks: true,
         });
     };
 
