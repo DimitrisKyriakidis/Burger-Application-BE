@@ -52,13 +52,13 @@ module.exports = (sequelize, Sequelize) => {
     };
 
     // ingredients.associate = (Models) => {
-    //     console.log('Models===', Models)
+    //     console.log("Models===", Models);
     //     ingredients.hasMany(Models.Ingredients_Items, {
-    //         as: 'ingredients_items',
-    //         foreignKey: 'ingredient_id',
-    //         sourceKey: 'ingredientCategory_id',
-    //     })
-    // }
+    //         as: "ingredients_items",
+    //         foreignKey: "ingredient_id",
+    //         sourceKey: "ingredientCategory_id",
+    //     });
+    // };
 
     return ingredients;
 };

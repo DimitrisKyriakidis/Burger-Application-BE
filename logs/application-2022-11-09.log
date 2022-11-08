@@ -1,0 +1,78 @@
+2022-11-08T22:03:16.370Z [info] : 	Code: F100 login Function Called
+2022-11-08T22:04:10.801Z [info] : 	Code: F100 login Function Called
+2022-11-08T22:04:16.681Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T22:04:16.702Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T22:04:21.629Z [info] : 	Code: F100 login Function Called
+2022-11-08T22:04:50.887Z [info] : 	Code: F100 login Function Called
+2022-11-08T22:06:58.950Z [info] : 	Code: F100 login Function Called
+2022-11-08T22:07:35.326Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T22:07:35.340Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T22:07:37.429Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T22:07:37.438Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T22:08:17.647Z [info] : 	Code: F100 login Function Called
+2022-11-08T22:08:48.843Z [info] : 	Code: F100 login Function Called
+2022-11-08T22:10:19.514Z [info] : 	Code: F100 login Function Called
+2022-11-08T22:10:29.119Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T22:10:29.128Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T22:10:32.698Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T22:10:32.708Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T22:10:52.562Z [info] : 	Code: F100 login Function Called
+2022-11-08T22:12:11.359Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T22:12:11.373Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T22:15:23.755Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-08T22:16:13.779Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-08T22:17:30.184Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-08T22:18:14.371Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-08T22:18:41.130Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-08T22:19:11.839Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-08T22:19:42.995Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-08T22:21:50.904Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-08T22:22:02.516Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-08T22:23:13.500Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-08T22:23:21.716Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-08T22:26:08.696Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-08T22:31:22.646Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-08T22:31:58.922Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T22:31:58.952Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T22:34:26.221Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-08T22:49:25.961Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T22:49:25.982Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T22:52:30.931Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T22:52:30.944Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T22:53:22.616Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T22:53:22.635Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T22:53:45.734Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T22:53:45.749Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T22:53:49.048Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T22:53:49.058Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T22:57:25.493Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T22:57:25.513Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T22:57:39.851Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T22:57:39.868Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T22:59:23.567Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T22:59:23.588Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T23:00:43.054Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T23:00:43.078Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T23:02:12.801Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T23:02:12.823Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T23:04:38.690Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T23:04:38.720Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T23:07:39.132Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T23:07:39.151Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T23:11:30.854Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T23:11:30.878Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T23:12:42.664Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T23:12:42.678Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T23:12:54.309Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T23:12:54.324Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T23:13:29.464Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T23:13:29.486Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T23:13:42.806Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T23:13:42.821Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T23:15:04.384Z [info] : 	Code: F100  editOrder  Function Called
+2022-11-08T23:15:04.456Z [info] : 	Code: HTTP200,  editOrder  Successful response
+2022-11-08T23:15:04.584Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T23:15:04.614Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-08T23:18:09.759Z [info] : 	Code: F100 login Function Called
+2022-11-08T23:24:34.460Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-08T23:24:34.477Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
