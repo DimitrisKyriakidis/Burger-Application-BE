@@ -21,7 +21,6 @@ class Burgers {
                 delete orderData[key];
             }
         }
-
         console.log("orderData2==", orderData);
 
         let order = await Models.Order.create({
@@ -70,7 +69,7 @@ class Burgers {
         await Models.Order.update({
             id: id,
             comment: body.comment ? body.comment : null,
-            status: orderData.status ? orderData.status : null,
+            status: body.status ? body.status : null,
         }, {
             where: {
                 id: id,
@@ -108,6 +107,14 @@ class Burgers {
         calculateOrderPrice(updateData, id);
 
         return {...updateData, ...calculateOrderPrice(updateData, id) };
+    }
+
+    async deleteOrder(id) {
+        return await Models.Order.destroy({
+            where: {
+                id: id,
+            },
+        });
     }
 }
 

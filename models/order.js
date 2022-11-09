@@ -1,7 +1,8 @@
 const hash = require("object-hash");
+const Models = require("../database/DB").Models;
 
 module.exports = (sequelize, Sequelize) => {
-    const tableName = "ORDER_CATEGORY";
+    const tableName = "ORDER";
     const order = sequelize.define(
         tableName, {
             id: {
@@ -22,6 +23,10 @@ module.exports = (sequelize, Sequelize) => {
                 type: Sequelize.FLOAT,
                 allowNull: true,
             },
+            image: {
+                type: Sequelize.STRING,
+                allowNull: true,
+            },
         }, {
             freezeTableName: true,
             tableName: tableName,
@@ -35,6 +40,21 @@ module.exports = (sequelize, Sequelize) => {
             foreignKey: "order_id",
             sourceKey: "id",
         });
+    };
+    order.seedData = async() => {
+        const seedData = await require("../seeders/orders");
+        const dbData = (await order.findAll({ logging: false })).map((el) => {
+            el.toJSON();
+        });
+
+        const seedDataIngredients = await require("../seeders/ingredients");
+        if (hash(dbData) !== hash(seedData)) {
+            await order.destroy({ where: {} });
+            await order.bulkCreate(seedData, { logging: false });
+            await sequelize.models.INGREDIENTS.bulkCreate(seedDataIngredients, {
+                logging: false,
+            });
+        }
     };
 
     return order;
