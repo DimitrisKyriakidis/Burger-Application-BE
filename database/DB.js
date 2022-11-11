@@ -84,7 +84,7 @@ DB.initDB = async() => {
         DB.isConnected = true;
 
         //Load Seeds
-        // await DB.initSeeds();
+        //await DB.initSeeds();
     } catch (err) {
         throw err.message || err;
     }
