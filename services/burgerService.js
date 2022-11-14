@@ -2,14 +2,27 @@ const { Model } = require("sequelize");
 const uuid = require("uuid").v4;
 const Models = require("../database/DB").Models;
 const Op = require("sequelize").Op;
+const Sequelize = require("sequelize");
 
 class Burgers {
-    async getAllBurgers() {
+    async getAllBurgers(searchString) {
+        const whereOptions = {
+            ...(!!searchString && {
+                name: {
+                    [Op.like]: `%${searchString}%`,
+                },
+            }),
+        };
+
         return await Models.Order.findAll({
             include: [{
                 as: "ingredients",
                 model: Models.Ingredients,
             }, ],
+            where: {...whereOptions },
+            order: [
+                ["creationDate", "DESC"]
+            ],
         });
     }
 
@@ -25,8 +38,9 @@ class Burgers {
 
         let order = await Models.Order.create({
             id: uuid(),
+            name: orderData.name ? orderData.name : null,
             comment: orderData.comment ? orderData.comment : null,
-            status: orderData.status ? orderData.status : null,
+            progress: orderData.progress ? orderData.progress : null,
         });
 
         let createData = Object.keys(orderData)
@@ -68,8 +82,9 @@ class Burgers {
         console.log("bodyUpdate==", body);
         await Models.Order.update({
             id: id,
+            // name:body.name?body.name:null,
             comment: body.comment ? body.comment : null,
-            status: body.status ? body.status : null,
+            progress: body.progress ? body.progress : null,
         }, {
             where: {
                 id: id,
@@ -115,6 +130,21 @@ class Burgers {
                 id: id,
             },
         });
+    }
+
+    async sendOrderToHistory(orderIds) {
+        //     const orderHistory = await Models.History.create({});
+        //     console.log("ids==", ids);
+        //     // await Models.OrderHistory.create({
+        //     //     order_id: {
+        //     //         [Op.in]: ids,
+        //     //     },
+        //     // });
+        //     //console.log("historyId=", orderHistory.id);
+        //     for (let data of orderIds) {
+        //         await Models.CheckoutOrders.create({ id: id,history_id:data });
+        //     }
+        // }
     }
 }
 

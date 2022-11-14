@@ -1,0 +1,69 @@
+2022-11-13T22:27:16.224Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-13T22:27:16.264Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-13T22:47:38.871Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T22:47:38.878Z [error] : 	Code: HTTP400,  sendOrderToHistory  Catch error
+2022-11-13T22:48:46.944Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T22:48:46.948Z [error] : 	Code: HTTP400,  sendOrderToHistory  Catch error
+2022-11-13T22:49:35.190Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-13T22:49:35.246Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-13T22:49:38.146Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T22:49:38.196Z [info] : 	Code: HTTP200,  sendOrderToHistory  Successful response
+2022-11-13T22:51:33.315Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T22:51:33.349Z [info] : 	Code: HTTP200,  sendOrderToHistory  Successful response
+2022-11-13T23:02:10.413Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T23:02:10.416Z [error] : 	Code: HTTP400,  sendOrderToHistory  Catch error
+2022-11-13T23:02:58.432Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T23:02:58.436Z [error] : 	Code: HTTP400,  sendOrderToHistory  Catch error
+2022-11-13T23:05:55.536Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T23:05:55.548Z [info] : 	Code: HTTP200,  sendOrderToHistory  Successful response
+2022-11-13T23:07:06.739Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T23:07:06.744Z [error] : 	Code: HTTP400,  sendOrderToHistory  Catch error
+2022-11-13T23:10:14.264Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T23:10:14.270Z [error] : 	Code: HTTP400,  sendOrderToHistory  Catch error
+2022-11-13T23:13:05.504Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-13T23:13:05.520Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-13T23:13:10.569Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T23:13:10.572Z [error] : 	Code: HTTP400,  sendOrderToHistory  Catch error
+2022-11-13T23:16:36.847Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T23:16:36.869Z [info] : 	Code: HTTP200,  sendOrderToHistory  Successful response
+2022-11-13T23:17:06.585Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-13T23:17:06.611Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-13T23:17:15.730Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T23:17:15.734Z [error] : 	Code: HTTP400,  sendOrderToHistory  Catch error
+2022-11-13T23:19:06.536Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-13T23:19:33.356Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-13T23:21:49.777Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T23:21:49.801Z [info] : 	Code: HTTP200,  sendOrderToHistory  Successful response
+2022-11-13T23:22:35.165Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T23:22:35.183Z [info] : 	Code: HTTP200,  sendOrderToHistory  Successful response
+2022-11-13T23:25:32.068Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T23:25:32.074Z [error] : 	Code: HTTP400,  sendOrderToHistory  Catch error
+2022-11-13T23:26:24.403Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T23:26:24.409Z [error] : 	Code: HTTP400,  sendOrderToHistory  Catch error
+2022-11-13T23:32:09.911Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T23:32:09.918Z [error] : 	Code: HTTP400,  sendOrderToHistory  Catch error
+2022-11-13T23:32:52.354Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T23:32:52.359Z [error] : 	Code: HTTP400,  sendOrderToHistory  Catch error
+2022-11-13T23:33:32.207Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T23:33:32.212Z [error] : 	Code: HTTP400,  sendOrderToHistory  Catch error
+2022-11-13T23:33:44.589Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T23:33:44.620Z [info] : 	Code: HTTP200,  sendOrderToHistory  Successful response
+2022-11-13T23:34:48.174Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T23:34:48.180Z [error] : 	Code: HTTP400,  sendOrderToHistory  Catch error
+2022-11-13T23:35:24.081Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T23:35:24.099Z [error] : 	Code: HTTP400,  sendOrderToHistory  Catch error
+2022-11-13T23:35:49.173Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T23:35:49.197Z [error] : 	Code: HTTP400,  sendOrderToHistory  Catch error
+2022-11-13T23:38:35.780Z [info] : 	Code: F100  sendOrderToHistory  Function Called
+2022-11-13T23:38:35.805Z [error] : 	Code: HTTP400,  sendOrderToHistory  Catch error
+2022-11-14T00:00:58.292Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-14T00:01:03.206Z [info] : 	Code: F100  getAllBurgers  Function Called
+2022-11-14T00:01:03.244Z [info] : 	Code: HTTP200,  getAllBurgers  Successful response
+2022-11-14T00:02:34.347Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-14T00:03:12.983Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-14T00:03:42.109Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-14T00:04:25.696Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-14T00:14:47.323Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-14T00:15:25.840Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-14T00:16:16.357Z [error] : 	Code: HTTP500, Error Connecting with Database
+2022-11-14T00:17:08.964Z [error] : 	Code: HTTP500, Error Connecting with Database

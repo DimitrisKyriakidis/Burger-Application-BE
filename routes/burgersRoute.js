@@ -9,4 +9,9 @@ router.put("/editOrder/:id", require("../apis/burgers/editOrder"));
 
 router.delete("/deleteOrder/:id", require("../apis/burgers/deleteOrder"));
 
+router.post(
+    "/sendOrderToHistory",
+    require("../apis/burgers/sendOrderToHistory")
+);
+
 module.exports = { routeName, router };
