@@ -23,6 +23,11 @@ module.exports = (sequelize, Sequelize) => {
             foreignKey: "history_id",
             sourceKey: "id",
         });
+        // history.hasMany(Models.CheckoutOrders, {
+        //     as: "historyOrders",
+        //     foreignKey: "history_id",
+        //     sourceKey: "id",
+        // });
     };
 
     return history;

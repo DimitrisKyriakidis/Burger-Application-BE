@@ -23,10 +23,6 @@ DB.Models = {
     Order: require("../models/order")(DB.sequelize, Sequelize),
     CheckoutOrders: require("../models/checkoutOrders")(DB.sequelize, Sequelize),
     History: require("../models/history")(DB.sequelize, Sequelize),
-    // Ingredients_Items: require("../models/ingredientsItems")(
-    //     DB.sequelize,
-    //     Sequelize
-    // ),
 };
 
 //Seeds Loader
@@ -78,7 +74,7 @@ DB.initDB = async() => {
         console.log("..DB Syncing");
 
         await DB.sequelize.sync({
-            force: true,
+            force: false,
             logging: false,
             //alter: true,
         });
@@ -87,7 +83,7 @@ DB.initDB = async() => {
         DB.isConnected = true;
 
         //Load Seeds
-        await DB.initSeeds();
+        //await DB.initSeeds();
     } catch (err) {
         throw err.message || err;
     }

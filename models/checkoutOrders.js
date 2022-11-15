@@ -11,9 +11,21 @@ module.exports = (sequelize, Sequelize) => {
                 autoIncrement: true,
                 primaryKey: true,
             },
+            order_id: {
+                type: Sequelize.STRING,
+                allowNull: true,
+            },
             history_id: {
                 type: Sequelize.STRING,
                 allowNull: true,
+            },
+            status: {
+                type: Sequelize.STRING,
+                defaultValue: "Completed",
+            },
+            deliveredDate: {
+                type: Sequelize.DATE,
+                defaultValue: Sequelize.literal("NOW()"),
             },
         }, {
             freezeTableName: true,
@@ -22,6 +34,11 @@ module.exports = (sequelize, Sequelize) => {
     );
 
     checkoutOrders.associate = (Models) => {
+        checkoutOrders.belongsTo(Models.Order, {
+            as: "orders",
+            foreignKey: "order_id",
+            sourceKey: "id",
+        });
         checkoutOrders.belongsTo(Models.History, {
             as: "historyOrders",
             foreignKey: "history_id",

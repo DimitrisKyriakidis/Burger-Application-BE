@@ -14,4 +14,9 @@ router.post(
     require("../apis/burgers/sendOrderToHistory")
 );
 
+router.get(
+    "/getAllHistoryOrders",
+    require("../apis/burgers/getAllHistoryOrders")
+);
+
 module.exports = { routeName, router };

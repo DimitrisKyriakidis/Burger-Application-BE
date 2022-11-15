@@ -3,6 +3,7 @@ const uuid = require("uuid").v4;
 const Models = require("../database/DB").Models;
 const Op = require("sequelize").Op;
 const Sequelize = require("sequelize");
+const { sequelize } = require("../database/DB");
 
 class Burgers {
     async getAllBurgers(searchString) {
@@ -133,18 +134,44 @@ class Burgers {
     }
 
     async sendOrderToHistory(orderIds) {
-        //     const orderHistory = await Models.History.create({});
-        //     console.log("ids==", ids);
-        //     // await Models.OrderHistory.create({
-        //     //     order_id: {
-        //     //         [Op.in]: ids,
-        //     //     },
-        //     // });
-        //     //console.log("historyId=", orderHistory.id);
-        //     for (let data of orderIds) {
-        //         await Models.CheckoutOrders.create({ id: id,history_id:data });
-        //     }
-        // }
+        const orderHistory = await Models.History.create({});
+        for (let ids of orderIds) {
+            await Models.CheckoutOrders.create({
+                order_id: ids,
+                history_id: orderHistory.id,
+            });
+        }
+    }
+
+    async getAllHistoryOrders() {
+        // return await Models.CheckoutOrders.findAll({
+        //     include: [{
+        //         as: "orders",
+        //         model: Models.Order,
+        //         include: [{
+        //             as: "ingredients",
+        //             model: Models.Ingredients,
+        //         }, ],
+        //     }, ],
+        // });
+        return await Models.History.findAll({
+            attributes: [
+                ["id", "history_id"]
+            ],
+            include: [{
+                as: "historyOrders",
+                model: Models.CheckoutOrders,
+                attributes: ["history_id", "deliveredDate", "status"],
+                include: [{
+                    as: "orders",
+                    model: Models.Order,
+                    include: [{
+                        as: "ingredients",
+                        model: Models.Ingredients,
+                    }, ],
+                }, ],
+            }, ],
+        });
     }
 }
 

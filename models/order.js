@@ -32,11 +32,11 @@ module.exports = (sequelize, Sequelize) => {
                 allowNull: true,
             },
 
-            status: {
-                type: Sequelize.ENUM,
-                values: ["Pending", "Completed"],
-                defaultValue: "Pending",
-            },
+            // status: {
+            //     type: Sequelize.ENUM,
+            //     values: ["Pending", "Completed"],
+            //     defaultValue: "Pending",
+            // },
 
             creationDate: {
                 type: Sequelize.DATE,
@@ -51,6 +51,11 @@ module.exports = (sequelize, Sequelize) => {
     order.associate = (Models) => {
         order.hasMany(Models.Ingredients, {
             as: "ingredients",
+            foreignKey: "order_id",
+            sourceKey: "id",
+        });
+        order.hasMany(Models.CheckoutOrders, {
+            as: "orders",
             foreignKey: "order_id",
             sourceKey: "id",
         });
