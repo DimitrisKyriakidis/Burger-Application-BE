@@ -136,7 +136,7 @@ class Burgers {
     async sendOrderToHistory(orderIds) {
         const orderHistory = await Models.History.create({});
         for (let ids of orderIds) {
-            await Models.CheckoutOrders.create({
+            await Models.Order_History.create({
                 order_id: ids,
                 history_id: orderHistory.id,
             });
@@ -144,31 +144,13 @@ class Burgers {
     }
 
     async getAllHistoryOrders() {
-        // return await Models.CheckoutOrders.findAll({
-        //     include: [{
-        //         as: "orders",
-        //         model: Models.Order,
-        //         include: [{
-        //             as: "ingredients",
-        //             model: Models.Ingredients,
-        //         }, ],
-        //     }, ],
-        // });
         return await Models.History.findAll({
-            attributes: [
-                ["id", "history_id"]
-            ],
             include: [{
                 as: "historyOrders",
-                model: Models.CheckoutOrders,
-                attributes: ["history_id", "deliveredDate", "status"],
+                model: Models.Order,
                 include: [{
-                    as: "orders",
-                    model: Models.Order,
-                    include: [{
-                        as: "ingredients",
-                        model: Models.Ingredients,
-                    }, ],
+                    as: "ingredients",
+                    model: Models.Ingredients,
                 }, ],
             }, ],
         });

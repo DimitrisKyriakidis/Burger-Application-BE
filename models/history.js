@@ -18,16 +18,11 @@ module.exports = (sequelize, Sequelize) => {
     );
 
     history.associate = (Models) => {
-        history.hasMany(Models.CheckoutOrders, {
+        history.belongsToMany(Models.Order, {
+            through: Models.Order_History,
             as: "historyOrders",
             foreignKey: "history_id",
-            sourceKey: "id",
         });
-        // history.hasMany(Models.CheckoutOrders, {
-        //     as: "historyOrders",
-        //     foreignKey: "history_id",
-        //     sourceKey: "id",
-        // });
     };
 
     return history;

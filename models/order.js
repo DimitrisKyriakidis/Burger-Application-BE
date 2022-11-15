@@ -32,12 +32,6 @@ module.exports = (sequelize, Sequelize) => {
                 allowNull: true,
             },
 
-            // status: {
-            //     type: Sequelize.ENUM,
-            //     values: ["Pending", "Completed"],
-            //     defaultValue: "Pending",
-            // },
-
             creationDate: {
                 type: Sequelize.DATE,
                 defaultValue: Sequelize.literal("NOW()"),
@@ -54,22 +48,13 @@ module.exports = (sequelize, Sequelize) => {
             foreignKey: "order_id",
             sourceKey: "id",
         });
-        order.hasMany(Models.CheckoutOrders, {
-            as: "orders",
+
+        order.belongsToMany(Models.History, {
+            through: Models.Order_History,
+            as: "orderakis",
             foreignKey: "order_id",
-            sourceKey: "id",
         });
     };
-
-    // order.associate = (Models) => {
-    //     order.hasOne(Models.OrderHistory, {
-    //         as: "orders",
-    //         foreignKey: "order_id",
-    //         sourceKey: "id",
-    //         onDelete: "cascade",
-    //         hooks: true,
-    //     });
-    // };
 
     order.seedData = async() => {
         const seedData = await require("../seeders/orders");
