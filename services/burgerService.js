@@ -2,14 +2,28 @@ const { Model } = require("sequelize");
 const uuid = require("uuid").v4;
 const Models = require("../database/DB").Models;
 const Op = require("sequelize").Op;
+const Sequelize = require("sequelize");
+const { sequelize } = require("../database/DB");
 
 class Burgers {
-    async getAllBurgers() {
+    async getAllBurgers(searchString) {
+        const whereOptions = {
+            ...(!!searchString && {
+                name: {
+                    [Op.like]: `%${searchString}%`,
+                },
+            }),
+        };
+
         return await Models.Order.findAll({
             include: [{
                 as: "ingredients",
                 model: Models.Ingredients,
             }, ],
+            where: {...whereOptions },
+            order: [
+                ["creationDate", "DESC"]
+            ],
         });
     }
 
@@ -25,8 +39,9 @@ class Burgers {
 
         let order = await Models.Order.create({
             id: uuid(),
+            name: orderData.name ? orderData.name : null,
             comment: orderData.comment ? orderData.comment : null,
-            status: orderData.status ? orderData.status : null,
+            progress: orderData.progress ? orderData.progress : null,
         });
 
         let createData = Object.keys(orderData)
@@ -68,8 +83,9 @@ class Burgers {
         console.log("bodyUpdate==", body);
         await Models.Order.update({
             id: id,
+            // name:body.name?body.name:null,
             comment: body.comment ? body.comment : null,
-            status: body.status ? body.status : null,
+            progress: body.progress ? body.progress : null,
         }, {
             where: {
                 id: id,
@@ -114,6 +130,47 @@ class Burgers {
             where: {
                 id: id,
             },
+        });
+    }
+
+    async sendOrderToHistory(orderIds) {
+        const orderHistory = await Models.History.create({});
+        for (let ids of orderIds) {
+            await Models.CheckoutOrders.create({
+                order_id: ids,
+                history_id: orderHistory.id,
+            });
+        }
+    }
+
+    async getAllHistoryOrders() {
+        // return await Models.CheckoutOrders.findAll({
+        //     include: [{
+        //         as: "orders",
+        //         model: Models.Order,
+        //         include: [{
+        //             as: "ingredients",
+        //             model: Models.Ingredients,
+        //         }, ],
+        //     }, ],
+        // });
+        return await Models.History.findAll({
+            attributes: [
+                ["id", "history_id"]
+            ],
+            include: [{
+                as: "historyOrders",
+                model: Models.CheckoutOrders,
+                attributes: ["history_id", "deliveredDate", "status"],
+                include: [{
+                    as: "orders",
+                    model: Models.Order,
+                    include: [{
+                        as: "ingredients",
+                        model: Models.Ingredients,
+                    }, ],
+                }, ],
+            }, ],
         });
     }
 }

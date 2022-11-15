@@ -10,6 +10,10 @@ module.exports = (sequelize, Sequelize) => {
                 allowNull: false,
                 primaryKey: true,
             },
+            name: {
+                type: Sequelize.STRING,
+                allowNull: true,
+            },
 
             orderPrice: {
                 type: Sequelize.FLOAT,
@@ -19,13 +23,24 @@ module.exports = (sequelize, Sequelize) => {
                 type: Sequelize.STRING,
                 allowNull: true,
             },
-            status: {
+            progress: {
                 type: Sequelize.FLOAT,
                 allowNull: true,
             },
             image: {
                 type: Sequelize.STRING,
                 allowNull: true,
+            },
+
+            // status: {
+            //     type: Sequelize.ENUM,
+            //     values: ["Pending", "Completed"],
+            //     defaultValue: "Pending",
+            // },
+
+            creationDate: {
+                type: Sequelize.DATE,
+                defaultValue: Sequelize.literal("NOW()"),
             },
         }, {
             freezeTableName: true,
@@ -34,13 +49,28 @@ module.exports = (sequelize, Sequelize) => {
     );
 
     order.associate = (Models) => {
-        console.log("Models===", Models);
         order.hasMany(Models.Ingredients, {
             as: "ingredients",
             foreignKey: "order_id",
             sourceKey: "id",
         });
+        order.hasMany(Models.CheckoutOrders, {
+            as: "orders",
+            foreignKey: "order_id",
+            sourceKey: "id",
+        });
     };
+
+    // order.associate = (Models) => {
+    //     order.hasOne(Models.OrderHistory, {
+    //         as: "orders",
+    //         foreignKey: "order_id",
+    //         sourceKey: "id",
+    //         onDelete: "cascade",
+    //         hooks: true,
+    //     });
+    // };
+
     order.seedData = async() => {
         const seedData = await require("../seeders/orders");
         const dbData = (await order.findAll({ logging: false })).map((el) => {

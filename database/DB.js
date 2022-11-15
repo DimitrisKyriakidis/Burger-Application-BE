@@ -18,12 +18,11 @@ DB.sequelize = new Sequelize(
 DB.Models = {
     Users: require("../models/users")(DB.sequelize, Sequelize),
     // Burgers: require("../models/burgers")(DB.sequelize, Sequelize),
+
     Ingredients: require("../models/ingredients")(DB.sequelize, Sequelize),
     Order: require("../models/order")(DB.sequelize, Sequelize),
-    // Ingredients_Items: require("../models/ingredientsItems")(
-    //     DB.sequelize,
-    //     Sequelize
-    // ),
+    CheckoutOrders: require("../models/checkoutOrders")(DB.sequelize, Sequelize),
+    History: require("../models/history")(DB.sequelize, Sequelize),
 };
 
 //Seeds Loader
@@ -84,7 +83,7 @@ DB.initDB = async() => {
         DB.isConnected = true;
 
         //Load Seeds
-        // await DB.initSeeds();
+        //await DB.initSeeds();
     } catch (err) {
         throw err.message || err;
     }
