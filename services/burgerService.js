@@ -133,9 +133,11 @@ class Burgers {
         });
     }
 
-    async sendOrderToHistory(orderIds) {
-        const orderHistory = await Models.History.create({});
-        for (let ids of orderIds) {
+    async sendOrderToHistory(data) {
+        const orderHistory = await Models.History.create({
+            totalPrice: data.totalPrice,
+        });
+        for (let ids of data.orderIds) {
             await Models.Order_History.create({
                 order_id: ids,
                 history_id: orderHistory.id,

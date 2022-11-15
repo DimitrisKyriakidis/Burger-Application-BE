@@ -51,7 +51,7 @@ module.exports = (sequelize, Sequelize) => {
 
         order.belongsToMany(Models.History, {
             through: Models.Order_History,
-            as: "orderakis",
+            as: "orders",
             foreignKey: "order_id",
         });
     };

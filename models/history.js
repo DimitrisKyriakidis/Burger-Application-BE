@@ -11,6 +11,14 @@ module.exports = (sequelize, Sequelize) => {
                 defaultValue: Sequelize.UUIDV4,
                 primaryKey: true,
             },
+            totalPrice: {
+                type: Sequelize.FLOAT,
+                allowNull: true,
+            },
+            deliveredDate: {
+                type: Sequelize.DATE,
+                defaultValue: Sequelize.literal("NOW()"),
+            },
         }, {
             freezeTableName: true,
             tableName: tableName,
