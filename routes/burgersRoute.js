@@ -19,4 +19,9 @@ router.get(
     require("../apis/burgers/getAllHistoryOrders")
 );
 
+router.post(
+    "/deleteHistoryOrders",
+    require("../apis/burgers/deleteHistoryOrders")
+);
+
 module.exports = { routeName, router };

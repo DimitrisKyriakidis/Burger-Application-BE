@@ -1,26 +1,26 @@
 const logger = require("../../Logger/winstonLogger").logger;
 const loggingPolicy = require("../../Logger/loggingPolicy").loggingPolicy;
-const paginator = require("../../utils/paginator");
+
 const Burgers = require("../../services/burgerService").Burgers;
-const apiName = "getAllHistoryOrders";
+const apiName = "deleteHistoryOrders";
 
 module.exports = async(req, res) => {
     try {
         logger.info(
             `Code: ${loggingPolicy.functionEnter.code}  ${apiName}  ${loggingPolicy.functionEnter.message}`
         );
-        let pagination = paginator([], "", req.query);
-        let burgerService = new Burgers();
-        const result = await burgerService.getAllHistoryOrders(
-            pagination.searchString
-        );
+
+        const burgerService = new Burgers();
+
+        // const id = req.params.id;
+        // console.log("paramsId=", id);
+        await burgerService.deleteHistoryOrders(req.body);
 
         logger.info(
             `Code: ${loggingPolicy.successResponse.code},  ${apiName}  ${loggingPolicy.successResponse.message}`
         );
         res.status(200).send({
-            message: "History Orders retrivied!!",
-            data: result,
+            message: "Burger Deleted!!",
         });
     } catch (err) {
         logger.error(

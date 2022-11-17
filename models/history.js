@@ -15,6 +15,7 @@ module.exports = (sequelize, Sequelize) => {
                 type: Sequelize.FLOAT,
                 allowNull: true,
             },
+
             deliveredDate: {
                 type: Sequelize.DATE,
                 defaultValue: Sequelize.literal("NOW()"),

@@ -10,6 +10,10 @@ module.exports = (sequelize, Sequelize) => {
                 type: Sequelize.STRING,
                 allowNull: true,
             },
+            quantity: {
+                type: Sequelize.INTEGER,
+                allowNull: true,
+            },
         }, {
             tableName: "ORDER_HISTORY",
             freezeTableName: true,

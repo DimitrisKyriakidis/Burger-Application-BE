@@ -134,18 +134,27 @@ class Burgers {
     }
 
     async sendOrderToHistory(data) {
+        console.log(data);
         const orderHistory = await Models.History.create({
             totalPrice: data.totalPrice,
         });
-        for (let ids of data.orderIds) {
+        for (let item of data.shoppingCartData) {
             await Models.Order_History.create({
-                order_id: ids,
+                order_id: item.id,
+                quantity: item.quantity,
                 history_id: orderHistory.id,
             });
         }
     }
 
-    async getAllHistoryOrders() {
+    async getAllHistoryOrders(searchString) {
+        const whereOptions = {
+            ...(!!searchString && {
+                id: {
+                    [Op.like]: `%${searchString}%`,
+                },
+            }),
+        };
         return await Models.History.findAll({
             include: [{
                 as: "historyOrders",
@@ -155,6 +164,20 @@ class Burgers {
                     model: Models.Ingredients,
                 }, ],
             }, ],
+            where: {...whereOptions },
+            order: [
+                ["deliveredDate", "DESC"]
+            ],
+        });
+    }
+    async deleteHistoryOrders(historyIds) {
+        console.log(historyIds);
+        historyIds.forEach(async(id) => {
+            await Models.History.destroy({
+                where: {
+                    id: id,
+                },
+            });
         });
     }
 }
