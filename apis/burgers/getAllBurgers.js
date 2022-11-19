@@ -10,8 +10,9 @@ module.exports = async(req, res) => {
             `Code: ${loggingPolicy.functionEnter.code}  ${apiName}  ${loggingPolicy.functionEnter.message}`
         );
         let pagination = paginator([], "", req.query);
-        console.log("pagination=", pagination);
+
         let burgerService = new Burgers();
+
         const result = await burgerService.getAllBurgers(pagination.searchString);
 
         logger.info(

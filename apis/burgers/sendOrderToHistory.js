@@ -13,6 +13,7 @@ module.exports = async(req, res) => {
         const burgerService = new Burgers();
 
         const result = await burgerService.sendOrderToHistory(req.body);
+
         logger.info(
             `Code: ${loggingPolicy.successResponse.code},  ${apiName}  ${loggingPolicy.successResponse.message}`
         );

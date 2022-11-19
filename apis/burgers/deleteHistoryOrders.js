@@ -12,15 +12,13 @@ module.exports = async(req, res) => {
 
         const burgerService = new Burgers();
 
-        // const id = req.params.id;
-        // console.log("paramsId=", id);
         await burgerService.deleteHistoryOrders(req.body);
 
         logger.info(
             `Code: ${loggingPolicy.successResponse.code},  ${apiName}  ${loggingPolicy.successResponse.message}`
         );
         res.status(200).send({
-            message: "Burger Deleted!!",
+            message: "History Order Deleted!!",
         });
     } catch (err) {
         logger.error(

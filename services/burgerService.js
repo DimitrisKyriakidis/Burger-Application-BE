@@ -28,14 +28,11 @@ class Burgers {
     }
 
     async createOrder(orderData) {
-        console.log("orderData1==", orderData);
-
         for (const key in orderData) {
             if (orderData[key] === null) {
                 delete orderData[key];
             }
         }
-        console.log("orderData2==", orderData);
 
         let order = await Models.Order.create({
             id: uuid(),
@@ -51,7 +48,6 @@ class Burgers {
                 val !== null && typeof val !== "string" && typeof val !== "number"
             );
 
-        console.log("createData", createData);
         createData.forEach(async(element) => {
             await Models.Ingredients.create({
                 category: element.category ? element.category : null,
@@ -68,7 +64,6 @@ class Burgers {
                 return acc + item.price;
             }, 0);
 
-            console.log("orderPrice==", orderPrice);
             await Models.Order.update({ orderPrice: orderPrice }, {
                 where: {
                     id: order.id,
@@ -83,7 +78,7 @@ class Burgers {
         console.log("bodyUpdate==", body);
         await Models.Order.update({
             id: id,
-            // name:body.name?body.name:null,
+
             comment: body.comment ? body.comment : null,
             progress: body.progress ? body.progress : null,
         }, {
@@ -97,8 +92,6 @@ class Burgers {
                 (val) =>
                 val !== null && typeof val !== "string" && typeof val !== "number"
             );
-
-        console.log("updateData", updateData);
 
         //for update we need to destroy the existing ingredients and then create again in order to avoid database errors
         await Models.Ingredients.destroy({
@@ -171,7 +164,6 @@ class Burgers {
         });
     }
     async deleteHistoryOrders(historyIds) {
-        console.log(historyIds);
         historyIds.forEach(async(id) => {
             await Models.History.destroy({
                 where: {
@@ -185,12 +177,10 @@ class Burgers {
 const calculateOrderPrice = async(data, id) => {
     let orderPrice = 0;
     await Promise.all(data).then(async(value) => {
-        console.log("promiseValue=", value);
         orderPrice = value.reduce((acc, item) => {
             return acc + item.price;
         }, 0);
 
-        console.log("orderPrice==", orderPrice);
         await Models.Order.update({ orderPrice: orderPrice }, {
             where: {
                 id: id,

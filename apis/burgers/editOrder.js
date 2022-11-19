@@ -13,9 +13,8 @@ module.exports = async(req, res) => {
         const burgerService = new Burgers();
 
         const id = req.params.id;
-        console.log("paramsId=", id);
-
         const result = await burgerService.updateOrder(id, req.body);
+
         logger.info(
             `Code: ${loggingPolicy.successResponse.code},  ${apiName}  ${loggingPolicy.successResponse.message}`
         );
