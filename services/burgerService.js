@@ -59,7 +59,6 @@ class Burgers {
         });
         let orderPrice = 0;
         await Promise.all(createData).then(async(value) => {
-            console.log("promiseValue=", value);
             orderPrice = value.reduce((acc, item) => {
                 return acc + item.price;
             }, 0);
@@ -75,7 +74,6 @@ class Burgers {
     }
 
     async updateOrder(id, body) {
-        console.log("bodyUpdate==", body);
         await Models.Order.update({
             id: id,
 
